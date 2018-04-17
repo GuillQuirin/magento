@@ -3,11 +3,13 @@ namespace Esgi\Storelocator\Controller\Adminhtml\Store;
 use Magento\Backend\App\Action;
 use Esgi\Storelocator\Model\Store as Store;
 
-class Add extends \Magento\Backend\App\Action
+class Edit extends \Magento\Backend\App\Action
 {
     /**
-     * Edit A Store Page
+     * Edit A Contact Page
      *
+     * @return \Magento\Backend\Model\View\Result\Page|\Magento\Backend\Model\View\Result\Redirect
+     * @SuppressWarnings(PHPMD.NPathComplexity)
      */
     public function execute()
     {
@@ -16,7 +18,7 @@ class Add extends \Magento\Backend\App\Action
 
         $contactDatas = $this->getRequest()->getParam('contact');
         if(is_array($contactDatas)) {
-            $contact = $this->_objectManager->create(Contact::class);
+            $contact = $this->_objectManager->create(Store::class);
             $contact->setData($contactDatas)->save();
             $resultRedirect = $this->resultRedirectFactory->create();
             return $resultRedirect->setPath('*/*/index');

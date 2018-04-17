@@ -1,5 +1,5 @@
 <?php
-namespace Pfay\Contacts\Block\Adminhtml\Contact\Edit;
+namespace Esgi\Storelocator\Block\Adminhtml\Store\Edit;
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 

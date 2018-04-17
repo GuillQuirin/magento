@@ -1,5 +1,5 @@
 <?php
-namespace Pfay\Contacts\Block\Adminhtml\Contact\Edit;
+namespace Esgi\Storelocator\Block\Adminhtml\Store\Edit;
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 
@@ -14,7 +14,7 @@ class SaveButton extends GenericButton implements ButtonProviderInterface
     public function getButtonData()
     {
         return [
-            'label' => __('Save Contact'),
+            'label' => __('Save Store'),
             'class' => 'save primary',
             'data_attribute' => [
                 'mage-init' => ['button' => ['event' => 'save']],

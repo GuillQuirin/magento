@@ -1,5 +1,5 @@
 <?php
-namespace Pfay\Contacts\Block\Adminhtml\Contact\Edit;
+namespace Esgi\Storelocator\Block\Adminhtml\Store\Edit;
 
 use Magento\Search\Controller\RegistryConstants;
 
@@ -43,8 +43,8 @@ class GenericButton
      */
     public function getId()
     {
-        $contact = $this->registry->registry('contact');
-        return $contact ? $contact->getId() : null;
+        $store = $this->registry->registry('store');
+        return $store ? $store->getId() : null;
     }
 
     /**

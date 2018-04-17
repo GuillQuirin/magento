@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+        
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">esgi_storelocator_form.storelocator_form_data_source</item>
-            <item name="deps" xsi:type="string">esgi_storelocator_form.storelocator_form_data_source</item>
+            <item name="provider" xsi:type="string">storelocator_store_form.storelocator_form_data_source</item>
+            <item name="deps" xsi:type="string">storelocator_store_form.storelocator_form_data_source</item>
         </item>
         <item name="label" xsi:type="string" translate="true">Sample Form</item>
         <item name="layout" xsi:type="array">
@@ -22,7 +24,7 @@
         <argument name="dataProvider" xsi:type="configurableObject">
             <argument name="class" xsi:type="string">Esgi\Storelocator\Model\Store\DataProvider</argument>
             <argument name="name" xsi:type="string">storelocator_form_data_source</argument>
-            <argument name="primaryFieldName" xsi:type="string">id</argument>
+            <argument name="primaryFieldName" xsi:type="string">storelocator_store_id</argument>
             <argument name="requestFieldName" xsi:type="string">id</argument>
         </argument>
         <argument name="data" xsi:type="array">
@@ -32,7 +34,7 @@
         </argument>
     </dataSource>
 
-    <fieldset name="contact">
+    <fieldset name="store">
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
                 <item name="label" xsi:type="string" translate="true">Sample Fieldset</item>
@@ -40,13 +42,13 @@
         </argument>
 
         <!-- This field represents form id and is hidden -->
-        <field name="id">
+        <field name="storelocator_store_id">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="visible" xsi:type="boolean">false</item>
                     <item name="dataType" xsi:type="string">text</item>
                     <item name="formElement" xsi:type="string">input</item>
-                    <item name="source" xsi:type="string">contact</item>
+                    <item name="source" xsi:type="string">store</item>
                 </item>
             </argument>
         </field>
@@ -59,7 +61,7 @@
                     <item name="visible" xsi:type="boolean">true</item>
                     <item name="dataType" xsi:type="string">text</item>
                     <item name="formElement" xsi:type="string">input</item>
-                    <item name="source" xsi:type="string">contact</item>
+                    <item name="source" xsi:type="string">store</item>
                 </item>
             </argument>
         </field>
@@ -73,7 +75,7 @@
                     <item name="visible" xsi:type="boolean">true</item>
                     <item name="dataType" xsi:type="string">text</item>
                     <item name="formElement" xsi:type="string">input</item>
-                    <item name="source" xsi:type="string">contact</item>
+                    <item name="source" xsi:type="string">store</item>
                 </item>
             </argument>
         </field>

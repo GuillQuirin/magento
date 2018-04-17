@@ -16,10 +16,10 @@ class NewAction extends \Magento\Backend\App\Action
         $this->_view->loadLayout();
         $this->_view->renderLayout();
 
-        $contactDatas = $this->getRequest()->getParam('contact');
-        if(is_array($contactDatas)) {
-            $contact = $this->_objectManager->create(Store::class);
-            $contact->setData($contactDatas)->save();
+        $storeDatas = $this->getRequest()->getParam('store');
+        if(is_array($storeDatas)) {
+            $store = $this->_objectManager->create(Store::class);
+            $store->setData($storeDatas)->save();
             $resultRedirect = $this->resultRedirectFactory->create();
             return $resultRedirect->setPath('*/*/index');
         }
