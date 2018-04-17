@@ -1,5 +1,5 @@
 <?php
-namespace Esgi\Storelocator\Controller\Adminhtml\Test;
+namespace Esgi\Storelocator\Controller\Adminhtml\Store;
 
 class Index extends \Magento\Backend\App\Action
 {

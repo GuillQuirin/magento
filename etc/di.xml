@@ -1,41 +1,49 @@
 <?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
 
-    <virtualType name="StoresGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+    <!-- -->
+    <virtualType name="StorelocatorGridDataProvider" 
+                type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
         <arguments>
-            <argument name="collection" xsi:type="object" shared="false">Esgi\Storelocator\Model\ResourceModel\Store\Collection</argument>
-            <argument name="filterPool" xsi:type="object" shared="false">StoresGridFilterPool</argument>
+            <argument name="collection" xsi:type="object" 
+                    shared="false">Esgi\Storelocator\Model\ResourceModel\Store\Collection</argument>
+            <argument name="filterPool" xsi:type="object" 
+                    shared="false">StorelocatorGridFilterPool</argument>
         </arguments>
     </virtualType>
 
-    <virtualType name="StoresGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
-        <arguments>
-            <argument name="collection" xsi:type="object" shared="false">Esgi\Storelocator\Model\ResourceModel\Store\Collection</argument>
-            <argument name="filterPool" xsi:type="object" shared="false">StoresGridFilterPool</argument>
-        </arguments>
-    </virtualType>
-
-    <virtualType name="StoresGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+    <!-- -->
+    <virtualType name="StorelocatorGridFilterPool" 
+                type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
         <arguments>
             <argument name="appliers" xsi:type="array">
-                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
-                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+                <item name="regular" 
+                    xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" 
+                    xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
             </argument>
         </arguments>
     </virtualType>
 
+    <!-- -->
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
-                <item name="stores_test_listing_data_source" xsi:type="string">Esgi\Storelocator\Model\ResourceModel\Store\Collection</item>
+                <item name="storelocator_store_listing_data_source" 
+                        xsi:type="string">Esgi\Storelocator\Model\ResourceModel\Store\Collection</item>
             </argument>
         </arguments>
     </type>
 
-    <virtualType name="Esgi\Storelocator\Model\ResourceModel\Store\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+    <!-- -->
+    <virtualType name="Esgi\Storelocator\Model\ResourceModel\Store\Collection" 
+                type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
-            <argument name="mainTable" xsi:type="string">esgi_storelocator</argument>
-            <argument name="resourceModel" xsi:type="string">Esgi\Storelocator\Model\ResourceModel\Store</argument>
+            <argument name="mainTable" 
+                        xsi:type="string">esgi_storelocator</argument>
+            <argument name="resourceModel" 
+                        xsi:type="string">Esgi\Storelocator\Model\ResourceModel\Store</argument>
         </arguments>
     </virtualType>
 

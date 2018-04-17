@@ -21,14 +21,14 @@ class InstallSchema implements InstallSchemaInterface
     {
         $setup->startSetup();
         /**
-         * Create table 'esgi_stores'
+         * Create table 'esgi_storelocator'
          */
 
-        if (!$setup->getConnection()->isTableExists($setup->getTable('esgi_stores'))) {
+        if (!$setup->getConnection()->isTableExists($setup->getTable('esgi_storelocator'))) {
             $table = $setup->getConnection()
-                ->newTable($setup->getTable('esgi_stores'))
+                ->newTable($setup->getTable('esgi_storelocator'))
                 ->addColumn(
-                    'id',
+                    'storelocator_store_id',
                     \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
                     null,
                     [

@@ -13,6 +13,6 @@ class Store extends AbstractDb
      */
     public function _construct()
     {
-        $this->_init('esgi_storelocator_store', 'id');
+        $this->_init('esgi_storelocator_store', 'storelocator_store_id');
     }
 }
