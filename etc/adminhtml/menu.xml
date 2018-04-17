@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Esgi_Storelocator" title="Storelocator" module="Esgi_Storelocator" sortOrder="20" dependsOnModule="Esgi_Storelocator" resource="Esgi_Storelocator::stores"/>
+        <add id="Esgi_Storelocator::index" title="Gestion des stores" module="Esgi_Storelocator" action="storelocator/test/index" parent="Esgi_Storelocator" sortOrder="20" dependsOnModule="Esgi_Storelocator" resource="Esgi_Storelocator::stores"/>
+    </menu>
+</config>
