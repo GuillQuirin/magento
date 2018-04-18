@@ -1,9 +1,24 @@
 <?php
+/**
+ * 
+ */
+
 namespace Esgi\Storelocator\Controller\Stores;
 class Infos extends \Magento\Framework\App\Action\Action
 {
-    public function execute()
-    {
-        die('test index vue');
-    }
+    protected $_pageFactory;
+
+	public function __construct(
+		\Magento\Framework\App\Action\Context $context,
+		\Magento\Framework\View\Result\PageFactory $pageFactory)
+	{
+		$this->_pageFactory = $pageFactory;
+		return parent::__construct($context);
+	}
+
+	public function execute()
+	{
+        $this->_view->loadLayout();
+        $this->_view->renderLayout();
+	}
 }

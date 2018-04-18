@@ -1,0 +1,71 @@
+<?php $store = $this->getDatasById($block->getRequest()->getParam("id")); ?>
+
+<h3>Fiche du magasin :</h3>
+
+<?php if($store!=NULL): ?>
+
+    <div id="map" style="height:250px;width:250px;display:inline-block;"></div>
+    
+    <script>
+        var locations = [
+            [
+                "<?php echo $store->getName(); ?>", 
+                <?php echo $store->getLat(); ?>, 
+                <?php echo $store->getLong(); ?>, 
+                "<?php echo $store->getAddress(); ?>",
+                <?php echo $store->getId(); ?>
+            ]
+        ];
+
+        function initMap() {
+            var myOptions = {
+                center: new google.maps.LatLng(<?php echo ($store->getLat()+0.005); ?>, <?php echo $store->getLong(); ?>),
+                zoom: 14,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map(document.getElementById("map"), myOptions);
+            setMarkers(map,locations);
+        }
+        
+        function setMarkers(map,locations){
+            var marker;
+
+            var loan = "<?php echo $store->getName(); ?>";
+            var lat = <?php echo $store->getLat(); ?>;
+            var long = <?php echo $store->getLong(); ?>;
+            var add =  "<?php echo $store->getAddress(); ?>";
+
+            latlngset = new google.maps.LatLng(lat, long);
+
+            var marker = new google.maps.Marker({  
+                map: map,
+                label: "A", 
+                title: loan , 
+                position: latlngset  
+            });
+
+            var content =   "<h3>" + loan + '</h3>' + 
+                            "<small>" + add + "</small>";
+            var infowindow = new google.maps.InfoWindow();
+            infowindow.setContent(content);
+            infowindow.open(map,marker);
+
+            google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){ 
+                return function() {
+                    infowindow.setContent(content);
+                    infowindow.open(map,marker);
+                };
+            })(marker,content,infowindow)); 
+        }
+    </script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqp3YHHox5uGXGwiQkK4uyuW5ws5gFdSM&callback=initMap"></script>
+
+<?php else : ?>
+    <?php 
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $redirect = $objectManager->get('\Magento\Framework\App\Response\Http');
+        $redirect->setRedirect($block->getUrl('storelocator/stores'));
+    ?>
+    <p>Le magasin n'existe pas.</p>
+<?php endif; ?>
