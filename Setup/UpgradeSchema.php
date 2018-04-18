@@ -30,11 +30,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 'default' => '0',
                 'comment' => 'Comment'
             ]);
-        }else  if (version_compare($context->getVersion(), '0.3.0', '<')) {
-
-            /**
-             * Add full text index to our table department
-             */
+        }/*else  if (version_compare($context->getVersion(), '0.3.0', '<')) {
 
             $tableName = $setup->getTable('esgi_storelocator');
             $fullTextIntex = array('name','email'); // Column with fulltext index, you can put multiple fields
@@ -44,7 +40,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 $fullTextIntex,
                 \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
             );
-        }
+        }*/
         $setup->endSetup();
     }
 }

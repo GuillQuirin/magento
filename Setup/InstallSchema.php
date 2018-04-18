@@ -50,14 +50,34 @@ class InstallSchema implements InstallSchemaInterface
                     'Name'
                 )
                 ->addColumn(
-                    'email',
+                    'address',
                     \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
                     100,
                     [
                         'nullable' => false, 
                         'default' => 'simple'
                     ],
-                    'Email'
+                    'Adresse'
+                )
+                ->addColumn(
+                    'lat',
+                    \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                    100,
+                    [
+                        'nullable' => false, 
+                        'default' => 'simple'
+                    ],
+                    'Latitude'
+                )
+                ->addColumn(
+                    'long',
+                    \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                    100,
+                    [
+                        'nullable' => false, 
+                        'default' => 'simple'
+                    ],
+                    'Longitude'
                 )
                 ->setComment('Esgi Stores Table')
                 ->setOption('type', 'InnoDB')

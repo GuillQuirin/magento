@@ -7,17 +7,17 @@ class Storeslist extends \Magento\Framework\View\Element\Template
     public function __construct(Template\Context $context, array $data = array())
     {
         parent::__construct($context, $data);
-        $this->setData('contacts',array());
+        $this->setData('storelocator',array());
     }
 
     public function addContacts($count)
     {
-        $_contacts = $this->getData('contacts');
+        $_contacts = $this->getData('storelocator');
         $actualNumber = count($_contacts);
         $names = array();
         for($i=$actualNumber;$i<($actualNumber+$count);$i++) {
             $_contacts[] = 'nom '.($i+1);
         }
-        $this->setData('contacts',$_contacts);
+        $this->setData('storelocator',$_contacts);
     }
 }

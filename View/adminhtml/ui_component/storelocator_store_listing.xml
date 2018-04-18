@@ -88,7 +88,7 @@
                     <item name="formElement" xsi:type="string">input</item>
                     <item name="source" xsi:type="string">store</item>
                     <item name="dataScope" xsi:type="string">name</item>
-                    <item name="label" xsi:type="string" translate="true">Name</item>
+                    <item name="label" xsi:type="string" translate="true">Nom</item>
                     <item name="filter" xsi:type="string">text</item>
                     <item name="validation" xsi:type="array">
                         <item name="required-entry" xsi:type="boolean">true</item>
@@ -96,16 +96,50 @@
                 </item>
             </argument>
         </column>
-        <!-- Column email -->
-        <column name="email">
+        <!-- Column address -->
+        <column name="address">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="visible" xsi:type="boolean">true</item>
                     <item name="dataType" xsi:type="string">text</item>
                     <item name="formElement" xsi:type="string">input</item>
                     <item name="source" xsi:type="string">store</item>
-                    <item name="dataScope" xsi:type="string">email</item>
-                    <item name="label" xsi:type="string" translate="true">Email</item>
+                    <item name="dataScope" xsi:type="string">address</item>
+                    <item name="label" xsi:type="string" translate="true">Adresse</item>
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </column>
+        <!-- Column lat -->
+        <column name="lat">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">store</item>
+                    <item name="dataScope" xsi:type="string">lat</item>
+                    <item name="label" xsi:type="string" translate="true">Latitude</item>
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </column>
+        <!-- Column long -->
+        <column name="long">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">store</item>
+                    <item name="dataScope" xsi:type="string">long</item>
+                    <item name="label" xsi:type="string" translate="true">Longitude</item>
                     <item name="filter" xsi:type="string">text</item>
                     <item name="validation" xsi:type="array">
                         <item name="required-entry" xsi:type="boolean">true</item>
