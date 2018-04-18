@@ -1,25 +1,35 @@
 <?php
-namespace Pfay\Contacts\Controller\Adminhtml\Store;
-use Magento\Backend\App\Action;
-use Pfay\Contacts\Model\Contact;
 
-class MassDelete extends \Magento\Backend\App\Action
+namespace Esgi\Storelocator\Controller\Adminhtml\Store;
+
+use Esgi\Storelocator\Controller\Adminhtml\Store;
+
+class MassDelete extends Store
 {
-    public function execute()
-    {
-        $ids = $this->getRequest()->getParam('selected', []);
-        if (!is_array($ids) || !count($ids)) {
-            $resultRedirect = $this->resultRedirectFactory->create();
-            return $resultRedirect->setPath('*/*/index', array('_current' => true));
-        }
-        foreach ($ids as $id) {
-            if ($contact = $this->_objectManager->create(Contact::class)->load($id)) {
-                $contact->delete();
+   /**
+    * @return void
+    */
+   public function execute()
+   {
+      // Get IDs of the selected news
+      $newsIds = $this->getRequest()->getParam('news');
+
+        foreach ($newsIds as $newsId) {
+            try {
+               /** @var $newsModel \Mageworld\SimpleNews\Model\News */
+                $newsModel = $this->_newsFactory->create();
+                $newsModel->load($newsId)->delete();
+            } catch (\Exception $e) {
+                $this->messageManager->addError($e->getMessage());
             }
         }
-        $this->messageManager->addSuccess(__('A total of %1 record(s) have been deleted.', count($ids)));
 
-        $resultRedirect = $this->resultRedirectFactory->create();
-        return $resultRedirect->setPath('*/*/index', array('_current' => true));
-    }
+        if (count($newsIds)) {
+            $this->messageManager->addSuccess(
+                __('A total of %1 record(s) were deleted.', count($newsIds))
+            );
+        }
+
+        $this->_redirect('*/*/index');
+   }
 }
