@@ -19,20 +19,4 @@ class Storeslist extends Template
         $helloCollection = $this->model->getCollection();
         return $helloCollection;
     }
-
-    public function sayHello()
-	{
-		return __('Hello World');
-	}
-
-    public function addStorelocator($count)
-    {
-        $_contacts = $this->getData('storelocator');
-        $actualNumber = count($_contacts);
-        $names = array();
-        for($i=$actualNumber;$i<($actualNumber+$count);$i++) {
-            $_contacts[] = 'nom '.($i+1);
-        }
-        $this->setData('storelocator',$_contacts);
-    }
 }
