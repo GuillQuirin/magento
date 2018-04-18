@@ -60,16 +60,6 @@ class InstallSchema implements InstallSchemaInterface
                     'Adresse'
                 )
                 ->addColumn(
-                    'lat',
-                    \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
-                    100,
-                    [
-                        'nullable' => false, 
-                        'default' => 'simple'
-                    ],
-                    'Latitude'
-                )
-                ->addColumn(
                     'long',
                     \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
                     100,
@@ -78,6 +68,16 @@ class InstallSchema implements InstallSchemaInterface
                         'default' => 'simple'
                     ],
                     'Longitude'
+                )
+                ->addColumn(
+                    'lat',
+                    \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                    100,
+                    [
+                        'nullable' => false, 
+                        'default' => 'simple'
+                    ],
+                    'Latitude'
                 )
                 ->setComment('Esgi Stores Table')
                 ->setOption('type', 'InnoDB')
