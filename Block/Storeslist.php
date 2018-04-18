@@ -10,7 +10,7 @@ class Storeslist extends \Magento\Framework\View\Element\Template
         $this->setData('storelocator',array());
     }
 
-    public function addContacts($count)
+    public function addStorelocator($count)
     {
         $_contacts = $this->getData('storelocator');
         $actualNumber = count($_contacts);
