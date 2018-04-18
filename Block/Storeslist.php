@@ -14,9 +14,9 @@ class Storeslist extends Template
         $this->setData('storelocator',array());
     }
 
-    public function getHelloCollection()
+    public function getCollection()
     {
-        $helloCollection = $this->model->getCollection();
-        return $helloCollection;
+        $collection = $this->model->getCollection();
+        return $collection;
     }
 }

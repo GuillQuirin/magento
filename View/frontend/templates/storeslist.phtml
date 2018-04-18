@@ -1,4 +1,4 @@
-<?php $collection = $this->getHelloCollection(); ?>
+<?php $collection = $this->getCollection(); ?>
 <h3>Liste des magasins</h3>
 
 <?php if(count($collection)!=0): ?>
@@ -41,7 +41,7 @@
                 var add =  locations[i][3];
                 var id =  locations[i][4];
 
-                var url = "http://localhost/Magento-CE-2.2.3-2018-02-22-04-51-53/storelocator/stores/infos/id/" + id;
+                var url = "<?php echo $block->getUrl('storelocator/store/infos/id'); ?>" + id;
 
                 latlngset = new google.maps.LatLng(lat, long);
 
