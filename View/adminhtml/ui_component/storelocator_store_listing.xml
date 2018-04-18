@@ -60,14 +60,13 @@
             </item>
         </argument>
 
-        <selectionsColumn name="ids">
+        <!-- <selectionsColumn name="ids">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <!-- define which field will be used as ID -->
                     <item name="indexField" xsi:type="string">storelocator_store_id</item>
                 </item>
             </argument>
-        </selectionsColumn>
+        </selectionsColumn> -->
 
         <!-- Column ID -->
         <column name="storelocator_store_id">
@@ -226,10 +225,10 @@
             </argument>
         </filterSearch>
 
-        <massaction name="listing_massaction">
+        <!-- <massaction name="listing_massaction">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="selectProvider" xsi:type="string">storelocator_store_listing.storelocator_store_listing.storelocator_store_columns.storelocator_store_ids</item>
+                    <item name="selectProvider" xsi:type="string">storelocator_store_listing.storelocator_store_listing.storelocator_store_columns.ids</item>
                     <item name="displayArea" xsi:type="string">bottom</item>
                     <item name="indexField" xsi:type="string">storelocator_store_id</item>
                 </item>
@@ -247,6 +246,6 @@
                     </item>
                 </argument>
             </action>
-        </massaction>
+        </massaction> -->
     </container>
 </listing>
