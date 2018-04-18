@@ -1,14 +1,29 @@
 <?php
 namespace Esgi\Storelocator\Block;
-use Magento\Framework\View\Element\Template;
 
-class Storeslist extends \Magento\Framework\View\Element\Template
+use Esgi\Storelocator\Model\Store as Store;
+use Magento\Framework\View\Element\Template as Template;
+use Magento\Framework\View\Element\Template\Context as Context;
+
+class Storeslist extends Template
 {
-    public function __construct(Template\Context $context, array $data = array())
+    public function __construct(Context $context, Store $model)
     {
-        parent::__construct($context, $data);
+        parent::__construct($context);
+        $this->model = $model;
         $this->setData('storelocator',array());
     }
+
+    public function getHelloCollection()
+    {
+        $helloCollection = $this->model->getCollection();
+        return $helloCollection;
+    }
+
+    public function sayHello()
+	{
+		return __('Hello World');
+	}
 
     public function addStorelocator($count)
     {
