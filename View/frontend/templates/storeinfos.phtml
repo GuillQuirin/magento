@@ -1,9 +1,10 @@
 <?php $store = $this->getDatasById($block->getRequest()->getParam("id")); ?>
 
+<p><a href="<?php echo $block->getUrl('storelocator/stores'); ?>">Retour à la liste des magasins.</a></p>
+
 <h3>Fiche du magasin :</h3>
 
 <?php if($store!=NULL): ?>
-
     <div id="map" style="height:250px;width:250px;display:inline-block;"></div>
     
     <script>
