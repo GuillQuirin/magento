@@ -11,8 +11,8 @@
         var locations = [
             [
                 "<?php echo $store->getName(); ?>", 
-                <?php echo $store->getLat(); ?>, 
-                <?php echo $store->getLong(); ?>, 
+                <?php echo str_replace(",",".",$store->getLat()); ?>, 
+                <?php echo str_replace(",",".",$store->getLong()); ?>, 
                 "<?php echo $store->getAddress(); ?>",
                 <?php echo $store->getId(); ?>
             ]
@@ -20,7 +20,7 @@
 
         function initMap() {
             var myOptions = {
-                center: new google.maps.LatLng(<?php echo ($store->getLat()+0.005); ?>, <?php echo $store->getLong(); ?>),
+                center: new google.maps.LatLng(<?php echo (str_replace(",",".",$store->getLat())+0.005); ?>, <?php echo str_replace(",",".",$store->getLong()); ?>),
                 zoom: 14,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
@@ -32,8 +32,8 @@
             var marker;
 
             var loan = "<?php echo $store->getName(); ?>";
-            var lat = <?php echo $store->getLat(); ?>;
-            var long = <?php echo $store->getLong(); ?>;
+            var lat = <?php echo str_replace(",",".",$store->getLat()); ?>;
+            var long = <?php echo str_replace(",",".",$store->getLong()); ?>;
             var add =  "<?php echo $store->getAddress(); ?>";
 
             latlngset = new google.maps.LatLng(lat, long);

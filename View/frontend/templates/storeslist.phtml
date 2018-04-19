@@ -11,8 +11,8 @@
             <?php foreach ($collection as $item): ?>  
                 [
                     "<?php echo $item->getName(); ?>", 
-                    <?php echo $item->getLat(); $avgLat += $item->getLat(); ?>, 
-                    <?php echo $item->getLong(); $avgLong += $item->getLong(); ?>, 
+                    <?php echo str_replace(",",".",$item->getLat()); $avgLat += str_replace(",",".",$item->getLat()); ?>, 
+                    <?php echo str_replace(",",".",$item->getLong()); $avgLong += str_replace(",",".",$item->getLong()); ?>, 
                     "<?php echo $item->getAddress(); ?>",
                     <?php echo $item->getId(); ?>,
                 ],
@@ -22,7 +22,7 @@
         function initMap() {
             var myOptions = {
                 center: new google.maps.LatLng(<?php echo $avgLat/count($collection); ?>, <?php echo $avgLong/count($collection); ?>),
-                zoom: 10,
+                zoom: 8,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
             var map = new google.maps.Map(document.getElementById("map"), myOptions);
