@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+<acl>
+    <resources>
+        <resource id="Magento_Backend::admin">
+            <resource id="Esgi_Storelocator::stores" title="Jobs">
+                <resource id="Esgi_Storelocator::store" title="Stores" translate="title" sortOrder="10">
+                    <resource id="Esgi_Storelocator::store_save" title="Save Store" translate="title" sortOrder="10" />
+                    <resource id="Esgi_Storelocator::store_delete" title="Delete Store" translate="title" sortOrder="20" />
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</acl>
+</config>

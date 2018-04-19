@@ -4,45 +4,54 @@
         
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">storelocator_store_form.storelocator_form_data_source</item>
-            <item name="deps" xsi:type="string">storelocator_store_form.storelocator_form_data_source</item>
+            <item name="provider" xsi:type="string">storelocator_store_form.store_form_data_source</item>
         </item>
         <item name="label" xsi:type="string" translate="true">Sample Form</item>
         <item name="layout" xsi:type="array">
             <item name="type" xsi:type="string">tabs</item>
         </item>
-
-        <item name="buttons" xsi:type="array">
-            <item name="back" xsi:type="string">Esgi\Storelocator\Block\Adminhtml\Store\Edit\BackButton</item>
-            <item name="delete" xsi:type="string">Esgi\Storelocator\Block\Adminhtml\Store\Edit\DeleteButton</item>
-            <item name="reset" xsi:type="string">Esgi\Storelocator\Block\Adminhtml\Store\Edit\ResetButton</item>
-            <item name="save" xsi:type="string">Esgi\Storelocator\Block\Adminhtml\Store\Edit\SaveButton</item>
-        </item>
     </argument>
 
-    <dataSource name="storelocator_form_data_source">
-        <argument name="dataProvider" xsi:type="configurableObject">
-            <argument name="class" xsi:type="string">Esgi\Storelocator\Model\Store\DataProvider</argument>
-            <argument name="name" xsi:type="string">storelocator_form_data_source</argument>
-            <argument name="primaryFieldName" xsi:type="string">storelocator_store_id</argument>
-            <argument name="requestFieldName" xsi:type="string">storelocator_store_id</argument>
-        </argument>
+    <settings>
+        <buttons>
+            <button name="back"  class="Esgi\Storelocator\Block\Adminhtml\Store\Edit\BackButton"/>
+            <button name="delete"  class="Esgi\Storelocator\Block\Adminhtml\Store\Edit\DeleteButton"/>
+            <button name="reset"  class="Esgi\Storelocator\Block\Adminhtml\Store\Edit\ResetButton"/>
+            <button name="save"  class="Esgi\Storelocator\Block\Adminhtml\Store\Edit\SaveButton"/>
+        </buttons>
+        <namespace>storelocator_store_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>storelocator_store_form.store_form_data_source</dep>
+        </deps>
+    </settings>
+    
+    <dataSource name="store_form_data_source">
         <argument name="data" xsi:type="array">
             <item name="js_config" xsi:type="array">
                 <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
             </item>
         </argument>
+        <settings>
+            <submitUrl path="storelocator/store/save"/>
+        </settings>
+        <dataProvider class="Esgi\Storelocator\Model\Store\DataProvider" name="store_form_data_source">
+            <settings>
+                <requestFieldName>storelocator_store_id</requestFieldName>
+                <primaryFieldName>storelocator_store_id</primaryFieldName>
+            </settings>
+        </dataProvider>        
     </dataSource>
 
     <fieldset name="store">
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
-                <item name="label" xsi:type="string" translate="true">Sample Fieldset</item>
+                <item name="label" xsi:type="string" translate="true">Modifier un magasin</item>
             </item>
         </argument>
 
         <!-- This field represents form id and is hidden -->
-        <field name="storelocator_store_id">
+        <field name="storelocator_store_id" formElement="input">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="visible" xsi:type="boolean">false</item>
@@ -54,7 +63,7 @@
         </field>
 
         <!-- This field has data type 'text' and standard 'input' form element and looks like input -->
-        <field name="name">
+        <field name="name" formElement="input">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="label" xsi:type="string">Name</item>
@@ -69,7 +78,7 @@
 
 
         <!-- This field has data type 'text' and standard 'input' form element and looks like input -->
-        <field name="address">
+        <field name="address" formElement="input">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="label" xsi:type="string">Adresse</item>
@@ -83,7 +92,7 @@
         </field>
 
         <!-- This field has data type 'text' and standard 'input' form element and looks like input -->
-        <field name="lat">
+        <field name="lat" formElement="input">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="label" xsi:type="string">Latitude</item>
@@ -97,7 +106,7 @@
         </field>
 
         <!-- This field has data type 'text' and standard 'input' form element and looks like input -->
-        <field name="long">
+        <field name="long" formElement="input">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="label" xsi:type="string">Longitude</item>
