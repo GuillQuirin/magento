@@ -22,25 +22,15 @@ class UpgradeSchema implements UpgradeSchemaInterface
         if (version_compare($context->getVersion(), '0.2.0', '<')) {
 
             $tableName = $setup->getTable('esgi_storelocator');
-            $setup->getConnection()->addColumn($tableName, 'comment', [
+            /*$setup->getConnection()->addColumn($tableName, 'comment', [
                 'type' => \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
                 'length'    => 255,
                 'unsigned' => true,
                 'nullable' => false,
                 'default' => '0',
                 'comment' => 'Comment'
-            ]);
-        }/*else  if (version_compare($context->getVersion(), '0.3.0', '<')) {
-
-            $tableName = $setup->getTable('esgi_storelocator');
-            $fullTextIntex = array('name','email'); // Column with fulltext index, you can put multiple fields
-            $setup->getConnection()->addIndex(
-                $tableName,
-                $setup->getIdxName($tableName, $fullTextIntex, \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT),
-                $fullTextIntex,
-                \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
-            );
-        }*/
+            ]);*/
+        }
         $setup->endSetup();
     }
 }

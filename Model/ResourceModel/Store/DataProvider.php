@@ -31,12 +31,10 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
 
         $items = $this->collection->getItems();
         $this->loadedData = array();
-        /** @var Customer $customer */
         foreach ($items as $store) {
             // notre fieldset s'apelle "store" d'ou ce tableau pour que magento puisse retrouver ses datas :
             $this->loadedData[$store->getId()]['store'] = $store->getData();
         }
-
 
         return $this->loadedData;
 

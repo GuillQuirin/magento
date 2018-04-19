@@ -6,10 +6,8 @@ use Esgi\Storelocator\Model\Store as Store;
 class NewAction extends \Magento\Backend\App\Action
 {
     /**
-     * Edit A Contact Page
+     * Edit A Store Page
      *
-     * @return \Magento\Backend\Model\View\Result\Page|\Magento\Backend\Model\View\Result\Redirect
-     * @SuppressWarnings(PHPMD.NPathComplexity)
      */
     public function execute()
     {

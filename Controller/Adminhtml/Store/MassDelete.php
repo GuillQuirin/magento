@@ -20,8 +20,8 @@ class MassDelete extends \Magento\Backend\App\Action
         }
 
         foreach ($ids as $id) {
-            if ($contact = $this->_objectManager->create(Store::class)->load($id)) {
-                $contact->delete();
+            if ($store = $this->_objectManager->create(Store::class)->load($id)) {
+                $store->delete();
             }
         }
         $this->messageManager->addSuccess(__('A total of %1 record(s) have been deleted.', count($ids)));

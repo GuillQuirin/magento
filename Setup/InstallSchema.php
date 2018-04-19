@@ -45,7 +45,7 @@ class InstallSchema implements InstallSchemaInterface
                     100,
                     [
                         'nullable' => false, 
-                        'default' => 'simple'
+                        'default' => 'Monoprix'
                     ],
                     'Name'
                 )
@@ -55,7 +55,7 @@ class InstallSchema implements InstallSchemaInterface
                     100,
                     [
                         'nullable' => false, 
-                        'default' => 'simple'
+                        'default' => 'Adresse'
                     ],
                     'Adresse'
                 )
@@ -65,7 +65,7 @@ class InstallSchema implements InstallSchemaInterface
                     100,
                     [
                         'nullable' => false, 
-                        'default' => 'simple'
+                        'default' => '2.35'
                     ],
                     'Longitude'
                 )
@@ -75,7 +75,7 @@ class InstallSchema implements InstallSchemaInterface
                     100,
                     [
                         'nullable' => false, 
-                        'default' => 'simple'
+                        'default' => '48.7'
                     ],
                     'Latitude'
                 )
